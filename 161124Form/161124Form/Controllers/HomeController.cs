@@ -57,7 +57,7 @@ namespace _161124Form.Controllers
         }
 
         [HttpGet]
-        public ActionResult info()
+        public ActionResult People()
         {
             return View(PrintInformation());
         }
@@ -77,5 +77,7 @@ namespace _161124Form.Controllers
             return PeopleList;
 
         }
+
+       
     }
 }
