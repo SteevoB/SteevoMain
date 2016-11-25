@@ -1,0 +1,17 @@
+﻿@model List<_161124Form.Models.GuestResponse>
+@{
+    ViewBag.Title = "People";
+}
+
+<h2>People</h2>
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.Name @item.Phone</li>
+    }
+
+</ul>
+
+
+

@@ -55,5 +55,27 @@ namespace _161124Form.Controllers
             //Om inte valid, dvs namn saknas, visa formuläret igen
             return View();
         }
+
+        [HttpGet]
+        public ActionResult info()
+        {
+            return View(PrintInformation());
+        }
+
+        [NonAction]
+        public List<GuestResponse> PrintInformation()
+        {
+            List<GuestResponse> PeopleList = new List<GuestResponse>();
+
+            TableQuery<GuestResponse> query = new TableQuery<GuestResponse>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "spamPerson"));
+
+            foreach (GuestResponse item in table.ExecuteQuery(query))
+            {
+               PeopleList.Add(item);
+            }
+
+            return PeopleList;
+
+        }
     }
 }
